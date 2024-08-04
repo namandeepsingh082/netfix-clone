@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { fetchMovies, getGenres, getUsersLikedMovies } from '../store';
+import { getUsersLikedMovies } from '../store';
 import { onAuthStateChanged } from 'firebase/auth';
 import { firebaseAuth } from '../utils/firebase-config';
 import styled from 'styled-components';
@@ -21,11 +21,6 @@ export default function UserLiked() {
         setEmail(currentUser.email);
       } else navigate("/login");
     });
-  
-
-    // useEffect(() => {
-    //     dispatch(getGenres());
-    //   }, [dispatch]);
 
     useEffect(() => {
         if(email){
